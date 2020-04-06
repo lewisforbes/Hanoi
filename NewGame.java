@@ -64,10 +64,14 @@ public class NewGame {
             stop = checkWin();
         }
         currentState.printGameState();
-        System.out.println("\nCongratulations! It took you " + movesTaken + " moves to finish!");
-        if (minMoves!=0) {
-            System.out.println("The best solution has " + Math.round(minMoves) + ".");
+        System.out.println("\nIt took " + movesTaken + " moves to finish.");
+        if (player == Main.player.ME) {
+            System.out.println("The best solution has " + Math.round(minMoves) + " moves.");
+            if (movesTaken>minMoves) {
+                System.out.println("Try again!");
+            }
         }
+        System.out.println("Thanks for playing!");
 
         System.out.println("\nType '" + playAgain + "' to play again");
         if (input.nextLine().equalsIgnoreCase(playAgain)) {

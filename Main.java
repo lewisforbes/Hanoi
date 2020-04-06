@@ -1,7 +1,10 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
+    private static final int numOfTowers = 3;
+    private static final int maxNumOfDisks = 20;
+
     public enum player {ME, AI}
 
     public static void main(String[] args) {
@@ -10,7 +13,6 @@ public class Main {
     }
 
     public static void initialiseGame() {
-        int numOfTowers = 3;
         int numOfDisks = 0;
         Scanner input = new Scanner(System.in);
         boolean proceed = false;
@@ -32,7 +34,7 @@ public class Main {
             }
 
             if (!proceed) {
-                System.err.println("Enter either '" + player.AI + "' or '" + player.ME + ".\n");
+                System.err.println("Enter either '" + player.AI + "' or '" + player.ME + ".");
             }
         } // human or AI
 
@@ -40,17 +42,19 @@ public class Main {
         while (!proceed) {
             System.out.println("\nEnter the number of disks to play with: ");
             inputtedLine = input.nextLine();
+
+            String illegalDiskNumMessage = "Invalid input. Enter an integer from 2-" + maxNumOfDisks + ".";
             try {
                 int i = Integer.parseInt(inputtedLine.replaceAll(" ", ""));
                 proceed = true;
             } catch (NumberFormatException nfe) {
-                System.err.println("Enter an integer greater than 1.");
+                System.err.println(illegalDiskNumMessage);
             }
 
             if (proceed) {
                 numOfDisks = Integer.parseInt(inputtedLine);
-                if (numOfDisks<=1) {
-                    System.err.println("Enter an integer greater than 1");
+                if ((numOfDisks<2)||(numOfDisks>maxNumOfDisks)) {
+                    System.err.println(illegalDiskNumMessage);
                     proceed = false;
                 }
             }

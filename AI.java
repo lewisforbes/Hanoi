@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This 'AI' generates the perfect solution for the given number of disks
+ * It only works for 3 towers
+ * The algorithm is from https://youtu.be/2SUvWfNJSsM (3Blue1Brown on YouTube)
+ */
+
 public class AI {
 
     public static ArrayList<String> moves;
