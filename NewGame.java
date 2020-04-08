@@ -113,7 +113,7 @@ public class NewGame {
     }
 
     private boolean validateMoveFormat(String inputtedLine) {
-        String errorMessage = "Move entered is not of the correct format.";
+        String errorMessage = "Move entered is not of the correct format.\n" + Main.moveFormatMessage;
 
         // checks string is numeric
         try {
