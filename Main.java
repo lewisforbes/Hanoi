@@ -68,7 +68,7 @@ public class Main {
         }
 
         if (chosenPlayer == player.ME) {
-            System.out.println(moveFormatMessage);
+            System.out.println("\n" + moveFormatMessage);
         }
 
         new NewGame(numOfTowers, numOfDisks, chosenPlayer);
