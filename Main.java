@@ -3,7 +3,10 @@ import java.util.Scanner;
 public class Main {
 
     private static final int numOfTowers = 3;
-    private static final int maxNumOfDisks = 20;
+    private static final int maxNumOfDisks = 25;
+
+    public static String moveFormatMessage = "Moves are entered in the format <origin> <destination>.\n" +
+            "For example: '1 3' moves a disk from the 1st to the 3rd tower.";
 
     public enum player {ME, AI}
 
@@ -64,6 +67,10 @@ public class Main {
             throw new IllegalArgumentException("Number of disks has not been set.");
         }
 
-        NewGame game = new NewGame(numOfTowers, numOfDisks, chosenPlayer);
+        if (chosenPlayer == player.ME) {
+            System.out.println(moveFormatMessage);
+        }
+
+        new NewGame(numOfTowers, numOfDisks, chosenPlayer);
     }
 }
